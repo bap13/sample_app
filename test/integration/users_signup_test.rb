@@ -22,6 +22,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password_confirmation: "foobar" }
     end
     assert_template 'users/show'
+    assert is_logged_in?
   end
 
   test "blank name should give correct error message" do
