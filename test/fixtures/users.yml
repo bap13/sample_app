@@ -3,25 +3,35 @@ brett:
   email: brett@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 fox:
   name: Fox Mulder
   email: fox.mulder@fbi.gov
   password_digest: <%= User.digest('spooky') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 scully:
   name: Dana Scully
   email: dana.scully@fbi.gov
   password_digest: <%= User.digest('queequeg') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 skinner:
   name: Walter Skinner
   email: adskinner@fbi.gov
   password_digest: <%= User.digest('idontknow') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
