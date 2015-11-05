@@ -52,6 +52,19 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 
+  test "index page should not display inactive users" do
+    log_in_as(@user)
+    @different_user.toggle!(:activated)
+    get :index
+    assert_select "a", text: @different_user.name, count: 0
+  end
+
+  test "show page should redirect when user is inactive" do
+    @user.toggle!(:activated)
+    get :show, id: @user
+    assert_redirected_to root_url
+  end
+
   test "should redirect destroy when not logged in" do
     assert_no_difference 'User.count' do
       delete :destroy, id: @user
