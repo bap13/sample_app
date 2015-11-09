@@ -1,0 +1,15 @@
+one:
+  follower: brett
+  followed: fox
+
+two:
+  follower: brett
+  followed: scully
+
+three:
+  follower: fox
+  followed: brett
+
+four:
+  follower: skinner
+  followed: brett
